@@ -12,7 +12,7 @@
     "comma-dangle": "off",
     "new-cap": "off",
     "no-trailing-spaces": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off"    
   },
   "extends": ["eslint:recommended", "google"]  
 }
