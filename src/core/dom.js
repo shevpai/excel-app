@@ -18,6 +18,10 @@ class Dom {
     return this
   }
 
+  on(eventType, callback) {    
+    this.$el.addEventListener(eventType, callback)
+  }
+
   append(node) {
     if (Element.prototype.append) {
       this.$el.insertAdjacentHTML('beforeend', node)
