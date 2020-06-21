@@ -1,8 +1,8 @@
 class Dom {
   constructor(selector) {
-    this.$el = typeof selector === 'string'?
-      document.querySelector(selector):
-      selector
+    this.$el = typeof selector === 'string'? 
+    document.querySelector(selector): 
+    selector
   }
 
   html(html) {
@@ -18,20 +18,26 @@ class Dom {
     return this
   }
 
-  on(eventType, callback) {    
+  on(eventType, callback) {
     this.$el.addEventListener(eventType, callback)
   }
 
   append(node) {
+    if (node instanceof Dom) {
+      node = node.$el
+    }
+
     if (Element.prototype.append) {
-      this.$el.insertAdjacentHTML('beforeend', node)
+      this.$el.append(node)
     } else {
       this.$el.appendChild(node)
     }
+
     return this
   }
 }
 
+// event.target
 export function $(selector) {
   return new Dom(selector)
 }
@@ -42,4 +48,4 @@ $.create = (tagName, classes = '') => {
     el.classList.add(classes)
   }
   return $(el)
-} 
+}
