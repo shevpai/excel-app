@@ -111,23 +111,23 @@ export class Table extends ExcelComponent {
         </div>
 
         <div class="row-data">
-          <div class="cell selected" contenteditable="">A1</div>
-          <div class="cell" contenteditable="">B2</div>
-          <div class="cell" contenteditable="">C3</div>
+          <div class="cell selected" contenteditable="" spellcheck="false">A1</div>
+          <div class="cell" contenteditable="" spellcheck="false">B1</div>
+          <div class="cell" contenteditable="" spellcheck="false">C1</div>
         </div>
-      </div>
+      </div>    
 
       <div class="row">
-        <div class="row-info">
-          2
-        </div>
-
-        <div class="row-data">
-          <div class="cell">A1</div>
-          <div class="cell">B2</div>
-          <div class="cell">C3</div>
-        </div>
+      <div class="row-info">
+        2
       </div>
+
+      <div class="row-data">
+        <div class="cell" contenteditable="" spellcheck="false">A2</div>
+        <div class="cell" contenteditable="" spellcheck="false">B2</div>
+        <div class="cell" contenteditable="" spellcheck="false">C2</div>
+      </div>
+    </div>    
     `
   }
 }
