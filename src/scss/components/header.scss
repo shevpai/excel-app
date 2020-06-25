@@ -7,9 +7,10 @@
   right: 0;
   left: 0;
   height: $header-height;
-  padding: 8px 4px 0px;
+  padding: 0px 4px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   
   
   & .input {
@@ -19,8 +20,8 @@
     color: #000;
     border: 1px solid transparent;
     border-radius: 2px;
-    height: 20px;
-    font-size: 18px;
+    height: 25px;
+    font-size: 22px;
     line-height: 22px;
     outline: none;
 
