@@ -12,10 +12,18 @@ function toColumn(col, index) {
   `
 }
 
-function toCell(_, index) {
-  return `
-    <div class="cell" contenteditable spellcheck="false" data-col="${index}"></div>
-  `
+function toCell(row) {
+  return function(_, col) {
+    return `
+    <div class="cell" 
+      contenteditable 
+      spellcheck="false" 
+      data-type="cell"
+      data-col="${col}" 
+      data-id="${row}:${col}">
+    </div>
+  `    
+  }
 }
 
 function createRow(index, content) {
@@ -49,12 +57,12 @@ export function createTable(rowsCount = 50) {
 
   rows.push(createRow(null, cols))
 
-  for (let i = 0; i < rowsCount; i++) {
+  for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell)
+        .map(toCell(row))
         .join('')
-    rows.push(createRow(i + 1, cells))
+    rows.push(createRow(row + 1, cells))
   }
 
   return rows.join('')
