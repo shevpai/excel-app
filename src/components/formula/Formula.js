@@ -1,4 +1,5 @@
 import {ExcelComponent} from '@core/ExcelComponent'
+import {$} from '@core/dom'
 
 export class Formula extends ExcelComponent {
   static className = 'excel__formula'
@@ -6,7 +7,7 @@ export class Formula extends ExcelComponent {
   constructor($root, options) {
     super($root, {
       name: 'Formula',
-      listeners: ['input', 'click'],
+      listeners: ['input', 'keydown'],
       ...options
     })
   }
@@ -14,16 +15,30 @@ export class Formula extends ExcelComponent {
   toHTML() {
     return `
       <div class="info">fx</div>
-      <div class="input" contenteditable spellcheck="false"></div>
+      <div id="formula" class="input" contenteditable spellcheck="false"></div>
     `
   }
 
-  onInput(event) {
-    const text = event.target.textContent.trim()
-    this.$emit('formula:input', text)
+  init() {
+    super.init()
+
+    this.$formula = this.$root.find('#formula')
+
+    this.$subscribe('table:select', $cell => this.$formula.textContent($cell.textContent()))
+
+    this.$subscribe('table:input', $cell => this.$formula.textContent($cell.textContent()))
   }
 
-  onClick() {
+  onInput(event) {
+    this.$emit('formula:input', $(event.target).textContent())
+  }    
+  
+  onKeydown(event) {
+    const keys = ['Enter', 'Tab']
+    if (keys.includes(event.key)) {
+      event.preventDefault()
 
+      this.$emit('formula:done')
+    }
   }
 }
