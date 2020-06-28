@@ -11,19 +11,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #aabbe9;
   
   
   & .input {
-    margin: 0;
+    margin: 0 5px;
     padding: 2px 7px;
     min-width: 1px;
     color: #000;
     border: 1px solid transparent;
     border-radius: 2px;
-    height: 25px;
+    height: 30px;
     font-size: 22px;
     line-height: 22px;
     outline: none;
+    background-color: #aabbe9;
 
     &:hover {
       border: 1px solid $border-color;
@@ -36,6 +38,10 @@
   }
 
   & .button {
-    @include button(green);
+    @include button(white);
+    
+    &:hover {
+    background: #aabbe9;
+    }
   }
 }
