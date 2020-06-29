@@ -3,6 +3,7 @@
 
 .excel__toolbar {
   position: fixed;
+  z-index: 1000;
   left: 0;
   right: 0;
   top: $header-height;  
@@ -12,6 +13,7 @@
   padding: 0px 10px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 
 .button {

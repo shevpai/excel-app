@@ -13,11 +13,12 @@ export class Table extends ExcelComponent {
       listeners: ['mousedown', 'keydown', 'input'],
       ...options
     })
+    this.rowsCount = 50
   }
 
 
   toHTML() {
-    return createTable()
+    return createTable(this.rowsCount)
   }
 
   prepare() {
@@ -41,6 +42,8 @@ export class Table extends ExcelComponent {
   }
 
   onMousedown(event) {
+    event.preventDefault()
+
     if (shouldResize(event)) {
       resizeHandler(this.$root, event)
     } else if (isCell(event)) {
@@ -61,7 +64,7 @@ export class Table extends ExcelComponent {
     if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault()
       const id = this.selection.current.id(true)
-      const $next = this.$root.find(nextSelector(key, id))
+      const $next = this.$root.find(nextSelector(key, id, this.rowsCount))
       this.selectCell($next)
     }
   }
