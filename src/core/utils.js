@@ -20,3 +20,11 @@ export function storage(key, data = null) {
   }
   localStorage.setItem(key, JSON.stringify(data))
 }
+
+export function isEqual(preVal, currentVal) {
+  if (typeof preVal === 'object' && typeof currentVal === 'object') {
+    // not working for Date, Set, Map
+    return JSON.stringify(preVal) === JSON.stringify(currentVal) 
+  }
+  return preVal === currentVal
+}
