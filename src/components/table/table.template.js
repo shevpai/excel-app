@@ -42,16 +42,19 @@ function toColumn({col, index, width}) {
 
 function toCell(state, row) {
   return function(_, col) {
+    const id = `${row}:${col}`
     const width = getWidth(state, col)
+    const data = state.dataState[id]
     return `
     <div class="cell" 
       contenteditable 
       spellcheck="false" 
       data-type="cell"
       data-col="${col}" 
-      data-id="${row}:${col}"
+      data-id="${id}"
       style="width: ${width}"
     >
+      ${data || ''}
     </div>
   `    
   }

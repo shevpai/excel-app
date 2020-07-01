@@ -22,13 +22,13 @@ export class Formula extends ExcelComponent {
   init() {
     super.init()
 
-    this.$formula = this.$root.find('#formula')
+    this.$formula = this.$root.find('#formula') // -input
 
     this.$subscribe('table:select', $cell => this.$formula.textContent($cell.textContent()))
 
-    this.$subscribe('table:input', $cell => this.$formula.textContent($cell.textContent()))
+    // this.$subscribe('table:input', $cell => this.$formula.textContent($cell.textContent()))
 
-    // this.$subscribeStore(state => console.log('FormulaState', state))
+    this.$subscribeStore(state => this.$formula.textContent(state.currentText))
   }
 
   onInput(event) {
