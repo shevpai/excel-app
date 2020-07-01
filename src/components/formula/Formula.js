@@ -32,7 +32,6 @@ export class Formula extends ExcelComponent {
   }
 
   storeChanged({currentText}) {
-    // super.storeChanged(changes)
     this.$formula.textContent(currentText)
   }
 

@@ -37,7 +37,6 @@ export class ExcelComponent extends DomListener {
 
   storeChanged(changes) {
     // optimize subscribe logic 
-    console.log('storeChanged', changes)
   }
 
   isWatching(key) {

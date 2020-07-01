@@ -1,4 +1,4 @@
-import { TABLE_RESIZE, CHANGE_TEXT } from "./types"
+import { TABLE_RESIZE, CHANGE_TEXT, CHANGE_TABLE_HEADER } from "./types"
 
 export function rootReducer(state, action) {
   let updateState
@@ -14,6 +14,10 @@ export function rootReducer(state, action) {
       updateState = state['dataState'] || {}
       updateState[action.payload.id] = action.payload.value
       return {...state, currentText: action.payload.value, dataState: updateState}
+    case CHANGE_TABLE_HEADER:
+      updateState = state['headerState'] || ''
+      updateState = action.payload
+      return {...state, headerState: updateState}
     default: return state
   }
 }
