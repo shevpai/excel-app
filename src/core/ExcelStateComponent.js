@@ -10,11 +10,12 @@ export class ExcelStateComponent extends ExcelComponent {
   }
 
   initState(initialState = {}) {
-    this.state = {...initialState}
+    this.state = initialState
   }
 
   setState(newState) {
     this.state = {...this.state, ...newState}
     this.$root.html(this.template)
+    console.log(this.state)
   }
 }

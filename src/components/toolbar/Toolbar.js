@@ -9,12 +9,13 @@ export class Toolbar extends ExcelStateComponent {
     super($root, {
       name: 'Toolbar',
       listeners: ['click'],
+      subscribe: ['currentStyles'],
       ...options
     })
   }    
 
   prepare() {  
-    this.initState({...defaultStyles})
+    this.initState(this.store.getState().currentStyles)
   }
 
   get template() {
@@ -25,15 +26,16 @@ export class Toolbar extends ExcelStateComponent {
     return this.template
   }
 
+  storeChanged({currentStyles}) {    
+    this.setState(currentStyles)       
+  }
+
   onClick(event) {
     event.preventDefault()
     const $target = $(event.target)
     if ($target.data.type === 'button') {
       const value = JSON.parse($target.data.value)
-      this.$emit('toolbar:applyStyle', value)
-
-      const key = Object.keys(value)[0]
-      this.setState({[key]: value[key]})
+      this.$emit('toolbar:applyStyle', value)      
     }
   }
 }

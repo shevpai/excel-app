@@ -28,3 +28,13 @@ export function isEqual(preVal, currentVal) {
   }
   return preVal === currentVal
 }
+
+export function camelCaseToDash(str) {
+  return str.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`)
+}
+
+export function toInlineStyles(styles = {}) {
+  return Object.keys(styles)
+      .map(key => `${camelCaseToDash(key)}: ${styles[key]}`)
+      .join(';')
+}

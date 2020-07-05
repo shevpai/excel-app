@@ -1,23 +1,43 @@
-import { TABLE_RESIZE, CHANGE_TEXT, CHANGE_TABLE_HEADER } from "./types"
+import { TABLE_RESIZE, CHANGE_TEXT, CHANGE_TABLE_HEADER, CURRENT_STYLE, APPLY_STYLE } from "./types"
+import { toInlineStyles } from "../core/utils"
 
 export function rootReducer(state, action) {
   let updateState
   let field 
+  let val
   console.log('Action:', action)
   switch (action.type) {
     case TABLE_RESIZE:
       field = action.payload.type === 'col' ? 'colState' : 'rowState'
-      updateState = state[field] || {}
-      updateState[action.payload.id] = action.payload.value
-      return {...state, [field]: updateState}     
+      return {...state, [field]: value(state, field, action)}     
     case CHANGE_TEXT: 
-      updateState = state['dataState'] || {}
-      updateState[action.payload.id] = action.payload.value
-      return {...state, currentText: action.payload.value, dataState: updateState}
+      field = 'dataState'
+      return {...state, [field]: value(state, field, action), currentText: action.payload.value}     
     case CHANGE_TABLE_HEADER:
-      updateState = state['headerState'] || ''
+      field = 'headerState'
+      updateState = state[field] || ''
       updateState = action.payload
-      return {...state, headerState: updateState}
+      return {...state, [field]: updateState}
+    case CURRENT_STYLE:
+      field = 'currentStyles'
+      return {...state, [field]: action.payload}
+    case APPLY_STYLE:
+      field = 'stylesState'
+      val = state[field] || {}
+      action.payload.ids.forEach(id => {
+        val[id] = {...val[id], ...action.payload.value}        
+      })
+      return {
+        ...state, 
+        [field]: val, 
+        currentStyles: {...state.currentStyles, ...action.payload.value}
+      }  
     default: return state
   }
+}
+
+function value(state, field, action) {
+  const updateState = state[field] || {}
+  updateState[action.payload.id] = action.payload.value
+  return updateState
 }
