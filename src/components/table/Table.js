@@ -1,9 +1,13 @@
-import {ExcelComponent} from '@core/ExcelComponent'
 import {$} from '@core/dom'
+import {ExcelComponent} from '@core/ExcelComponent'
 import { createTable } from './table.template'
 import { resizeHandler } from './table.resize'
 import { shouldResize, isCell, matrix, nextSelector } from './table.function'
 import { TableSelection } from './TableSelection'
+import { defaultStyles } from '../../constants'
+import * as actions from '@/redux/actions'
+import { parse } from '../../core/utils'
+
 
 export class Table extends ExcelComponent {
   static className = 'excel__table'
@@ -11,13 +15,15 @@ export class Table extends ExcelComponent {
     super($root, {
       name: 'Table',
       listeners: ['mousedown', 'keydown', 'input'],
+      subscribe: ['colState', 'rowState'],
       ...options
     })
+    this.rowsCount = 50
   }
 
 
   toHTML() {
-    return createTable()
+    return createTable(this.rowsCount, this.store.getState())
   }
 
   prepare() {
@@ -29,20 +35,48 @@ export class Table extends ExcelComponent {
     
     this.selectCell(this.$root.find('[data-id="0:0"]'))
 
-    this.$subscribe('formula:input', text => 
-        this.selection.current.textContent(text))
+    this.$subscribe('formula:input', text => {
+      console.log(text)
+      this.selection.current
+          .attr('data-value', text)
+          .textContent(parse(text))
+      this.updateTextInStore(text)
+    })
 
     this.$subscribe('formula:done', () => this.selection.current.focus())
+
+    this.$subscribe('toolbar:applyStyle', value => {
+      this.selection.applyStyle(value)
+      this.$dispatch(actions.applyStyle({
+        value,
+        ids: this.selection.ids
+      }))
+    })
+
+    // this.$subscribeStore(state => console.log('TabeState', state))
   }
 
   selectCell($cell) {
     this.selection.select($cell)
     this.$emit('table:select', $cell)
+    this.$dispatch(actions.changeStyles($cell.getStyles(Object.keys(defaultStyles))))    
+  }
+
+  async resizeTable(event) {
+    try {
+      const data = await resizeHandler(this.$root, event)
+      this.$dispatch(actions.tableResize(data))
+    } catch (e) {
+      throw new Error('Resize error', e.message)
+    }
+
   }
 
   onMousedown(event) {
+
     if (shouldResize(event)) {
-      resizeHandler(this.$root, event)
+      event.preventDefault()
+      this.resizeTable(event)
     } else if (isCell(event)) {
       const $target = $(event.target)
       if (event.shiftKey) {
@@ -61,13 +95,22 @@ export class Table extends ExcelComponent {
     if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault()
       const id = this.selection.current.id(true)
-      const $next = this.$root.find(nextSelector(key, id))
+      const $next = this.$root.find(nextSelector(key, id, this.rowsCount))
       this.selectCell($next)
     }
   }
+
+  updateTextInStore(value) {
+    this.$dispatch(actions.changeText({
+      id: this.selection.current.id(),
+      value
+    }))
+  }
   
   onInput(event) {
-    this.$emit('table:input', $(event.target))
+    // this.$emit('table:input', $(event.target))
+     
+    this.updateTextInStore($(event.target).textContent())
   }
 }
 

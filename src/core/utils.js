@@ -1,3 +1,14 @@
+export function parse(text = '') {
+  if (text.startsWith('=')) {
+    try {
+      return eval(text.slice(1))
+    } catch (e) {
+      console.warn('Skipping parse error', e.message)
+    }
+  }
+  return text
+}
+
 export function capitalizeFirst(string) {
   if (typeof string !== 'string') {
     return ''
@@ -12,4 +23,43 @@ export function capitalizeFirst(string) {
   return new Array(end - start + 1)
       .fill('')
       .map((_, index) => start + index)
+}
+
+export function storage(key, data = null) {
+  if (!data) {
+    return JSON.parse(localStorage.getItem(key))
+  }
+  localStorage.setItem(key, JSON.stringify(data))
+}
+
+export function isEqual(preVal, currentVal) {
+  if (typeof preVal === 'object' && typeof currentVal === 'object') {
+    // not working for Date, Set, Map
+    return JSON.stringify(preVal) === JSON.stringify(currentVal) 
+  }
+  return preVal === currentVal
+}
+
+export function camelCaseToDash(str) {
+  return str.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`)
+}
+
+export function toInlineStyles(styles = {}) {
+  return Object.keys(styles)
+      .map(key => `${camelCaseToDash(key)}: ${styles[key]}`)
+      .join(';')
+}
+
+
+export function debounce(fn, wait) {
+  let timeout
+  return function(...args) {
+    const later = () => {
+      clearTimeout(timeout)
+      // eslint-disable-next-line
+      fn.apply(this, args)
+    }
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+  }
 }
