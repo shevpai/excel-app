@@ -1,3 +1,14 @@
+export function parse(text = '') {
+  if (text.startsWith('=')) {
+    try {
+      return eval(text.slice(1))
+    } catch (e) {
+      console.warn('Skipping parse error', e.message)
+    }
+  }
+  return text
+}
+
 export function capitalizeFirst(string) {
   if (typeof string !== 'string') {
     return ''

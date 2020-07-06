@@ -25,10 +25,7 @@ export class Formula extends ExcelComponent {
 
     this.$formula = this.$root.find('#formula') // -input
 
-    this.$subscribe('table:select', $cell => this.$formula.textContent($cell.textContent()))
-
-    // this.$subscribe('table:input', $cell => this.$formula.textContent($cell.textContent()))
-    // this.$subscribeStore(state => this.$formula.textContent(state.currentText))
+    this.$subscribe('table:select', $cell => this.$formula.textContent($cell.data.value))
   }
 
   storeChanged({currentText}) {

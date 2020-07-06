@@ -6,6 +6,7 @@ import { shouldResize, isCell, matrix, nextSelector } from './table.function'
 import { TableSelection } from './TableSelection'
 import { defaultStyles } from '../../constants'
 import * as actions from '@/redux/actions'
+import { parse } from '../../core/utils'
 
 
 export class Table extends ExcelComponent {
@@ -35,7 +36,10 @@ export class Table extends ExcelComponent {
     this.selectCell(this.$root.find('[data-id="0:0"]'))
 
     this.$subscribe('formula:input', text => {
-      this.selection.current.textContent(text)
+      console.log(text)
+      this.selection.current
+          .attr('data-value', text)
+          .textContent(parse(text))
       this.updateTextInStore(text)
     })
 
