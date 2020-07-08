@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Exel App</title>
-</head>
-<body>
-  
-  <div id="app" class="container">
-    <div class="db">
+import { Page } from "../core/Page";
+import { $ } from "../core/dom";
+
+export class DashboardPage extends Page {
+  getRoot() {
+    return $.create('div', 'db').html(`
       <div class="db__header">
         <h1>Excel Dashboard</h1>
       </div>
@@ -37,10 +30,7 @@
             <strong>DD.MM.YYYY</strong>
           </li>
         </ul>
-
-      </div>
     </div>
-  </div>
-
-</body>
-</html>
+  `)
+  }
+}
