@@ -9,8 +9,11 @@ export class DashboardPage extends Page {
       </div>
       <div class="db__new">
         <div class="db__view">
-          <a href="#" class="db__create">
+          <a href="#excel" class="db__create">
             New <br /> Table
+            <span class="material-icons db__create__icon">
+              note_add
+            </span>
           </a>
         </div>        
       </div>
