@@ -40,7 +40,12 @@
 
   & .button {
     @include button(white);
-    
+
+    .material-icons {
+      font-size: 31px;
+      margin-right: 4px;
+    }
+
     &:hover {
     background: #aabbe9;
     }

@@ -1,8 +1,15 @@
-function toHTML() {
+import { storage, formatDate } from "../core/utils"
+
+function toHTML(key) {
+  const model = storage(key)
+  const id = key.split(':')[1]  
+  const date = new Date(model.lastViewed)
   return `
     <li class="db__record">
-      <a href="#">Table №1</a>
-      <span>DD.MM.YYYY</span>
+      <a href="#excel/${id}">${model.headerState}</a>
+      <span>
+        ${formatDate(date)}
+      </span>
     </li>   
   `
 }
@@ -24,7 +31,7 @@ export function createRecordsTable() {
   const keys = getAllKeys()
 
   if (!keys.length) {
-  return `<p>You have not created any tables</p>`
+  return `<p class="db__table__no-tables">You have not create any table</p>`
   }  
 
   return `

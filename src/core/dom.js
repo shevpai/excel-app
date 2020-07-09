@@ -23,9 +23,11 @@ class Dom {
       this.$el.textContent = text
       return this
     } 
-    if (this.$el.tagName.toLowerCase() === 'input') {      
+   
+    if (this.$el.tagName.toLowerCase() === 'input') {       
       return this.$el.value.trim()
-    }
+    }       
+     
     return this.$el.textContent.trim()    
   } 
 

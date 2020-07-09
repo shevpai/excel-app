@@ -4,7 +4,7 @@
 .db {
   
   &__header {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -58,6 +58,11 @@
 
   &__table {
     padding: 1rem;
+
+    &__no-tables {
+      font-size: 22px;
+      text-align: center;
+    }
   }
 
   &__list-header {

@@ -8,12 +8,13 @@ const defaultState = {
   stylesState: {},
   currentText: '',
   headerState: '',
-  currentStyles: {...defaultStyles}
+  currentStyles: {...defaultStyles},
+  lastViewed: new Date().toJSON() 
 }
 
 const normalize = state => ({
   ...state,
-  currentStyles: defaultStyles,
+  currentStyles: {...defaultStyles},
   currentText: ''
 })
 
