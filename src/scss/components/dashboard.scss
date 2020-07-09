@@ -39,10 +39,8 @@
     text-align: center;
 
     &__icon {
-      margin-top: 7px;
-      font-size: 50px;
-      height: 50px;
-      min-width: 50px;
+      font-size: 95px; 
+      min-width: 95px;    
     }
 
     &:hover {
@@ -67,7 +65,7 @@
     justify-content: space-between;
     color: #202124;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 22px;
     padding: 0 12px;
   }  
 
@@ -90,12 +88,16 @@
     a {
       text-decoration: none;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 18px;
       color: #202124;
 
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    span {
+      font-size: 16px;
     }
   }
 }

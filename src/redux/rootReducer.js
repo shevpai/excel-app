@@ -1,5 +1,4 @@
 import { TABLE_RESIZE, CHANGE_TEXT, CHANGE_TABLE_HEADER, CURRENT_STYLE, APPLY_STYLE } from "./types"
-import { toInlineStyles } from "../core/utils"
 
 export function rootReducer(state, action) {
   let updateState

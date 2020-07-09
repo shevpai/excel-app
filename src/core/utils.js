@@ -50,6 +50,8 @@ export function toInlineStyles(styles = {}) {
       .join(';')
 }
 
+export const clone = obj => JSON.parse(JSON.stringify(obj))
+
 
 export function debounce(fn, wait) {
   let timeout
