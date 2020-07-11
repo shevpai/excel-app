@@ -86,3 +86,7 @@ export function debounce(fn, wait) {
     timeout = setTimeout(later, wait)
   }
 }
+
+export function preventDefault(e) {
+  e.preventDefault()
+}
