@@ -36,10 +36,10 @@ export class Table extends ExcelComponent {
     this.selectCell(this.$root.find('[data-id="0:0"]'))
 
     this.$subscribe('formula:input', text => {
-      console.log(text)
-      this.selection.current
-          .attr('data-value', text)
-          .textContent(parse(text))
+      
+      this.selection.current.attr('data-value', text)
+      this.selection.current.textContent(parse(text))
+          
       this.updateTextInStore(text)
     })
 
@@ -52,13 +52,11 @@ export class Table extends ExcelComponent {
         ids: this.selection.ids
       }))
     })
-
-    // this.$subscribeStore(state => console.log('TabeState', state))
   }
 
   selectCell($cell) {
     this.selection.select($cell)
-    this.$emit('table:select', $cell)
+    this.$emit('table:select', $cell.data.value)
     this.$dispatch(actions.changeStyles($cell.getStyles(Object.keys(defaultStyles))))    
   }
 
@@ -107,9 +105,7 @@ export class Table extends ExcelComponent {
     }))
   }
   
-  onInput(event) {
-    // this.$emit('table:input', $(event.target))
-     
+  onInput(event) {     
     this.updateTextInStore($(event.target).textContent())
   }
 }

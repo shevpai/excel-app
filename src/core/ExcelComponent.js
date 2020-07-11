@@ -11,10 +11,10 @@ export class ExcelComponent extends DomListener {
 
     this.prepare()
   }
+  
 
-  prepare() {
-    // some settings before init()
-  }
+  prepare() {}
+
 
   toHTML() {
     return ''

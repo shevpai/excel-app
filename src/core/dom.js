@@ -13,21 +13,23 @@ class Dom {
     return this.$el.outerHTML.trim()
   }
 
+  clear() {
+    this.html('')
+    return this
+  }
+
   textContent(text) {
     if (typeof text !== 'undefined') {     
       this.$el.textContent = text
       return this
     } 
-    if (this.$el.tagName.toLowerCase() === 'input') {      
+   
+    if (this.$el.tagName.toLowerCase() === 'input') {       
       return this.$el.value.trim()
-    }
+    }       
+     
     return this.$el.textContent.trim()    
-  }
-
-  clear() {
-    this.html('')
-    return this
-  }
+  } 
 
   on(eventType, callback) {
     this.$el.addEventListener(eventType, callback)

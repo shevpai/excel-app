@@ -4,7 +4,7 @@
 .db {
   
   &__header {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
+    background: #aabbe9;
     box-shadow: 0 2px 5px 2px rgba(60, 64, 67, .15);
     z-index: 1000;
   }
@@ -30,12 +30,18 @@
     border: 1px solid #dadce0;
     border-radius: 4px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
     text-decoration: none;
     color: #000;
     text-align: center;
+
+    &__icon {
+      font-size: 95px; 
+      min-width: 95px;    
+    }
 
     &:hover {
       cursor: pointer;
@@ -52,6 +58,11 @@
 
   &__table {
     padding: 1rem;
+
+    &__no-tables {
+      font-size: 22px;
+      text-align: center;
+    }
   }
 
   &__list-header {
@@ -59,7 +70,7 @@
     justify-content: space-between;
     color: #202124;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 22px;
     padding: 0 12px;
   }  
 
@@ -82,12 +93,16 @@
     a {
       text-decoration: none;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 18px;
       color: #202124;
 
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    span {
+      font-size: 16px;
     }
   }
 }
