@@ -4,7 +4,7 @@ const initialState = {
   count: 0
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
   if (action.type === 'ADD') {
     return {...state, count: state.count + 1}
   }
