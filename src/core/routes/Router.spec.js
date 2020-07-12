@@ -1,5 +1,5 @@
 import {Router} from './Router'
-import { Page } from '../Page'
+import { Page } from '../page/Page'
 import { ActiveRoute } from './ActiveRoute'
 
 
@@ -39,8 +39,17 @@ describe('Router', () => {
   })
 
   test('should render Dashboard page', () => {
-    router.changePageHandler()  
-    expect($root.innerHTML).toBe('<div>dashboard</div>')    
-    expect($root.innerHTML).not.toBe('<div>excel</div>')  
+    return new Promise(resolve => {
+      setTimeout(() => {
+        router.changePageHandler()        
+      }, 500)
+
+      setTimeout(() => {
+        expect($root.innerHTML).toBe('<div>dashboard</div>')    
+        expect($root.innerHTML).not.toBe('<div>excel</div>')  
+        resolve()
+      }, 1000)
+    })  
+    
   })
 })
