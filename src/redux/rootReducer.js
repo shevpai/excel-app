@@ -4,6 +4,7 @@ import { TABLE_RESIZE,
          CURRENT_STYLE, 
          APPLY_STYLE, 
          UPDATE_VIEW_DATE} from "./types"
+import { rgb2hex } from "../core/utils"
 
 export function rootReducer(state, action) {
   let updateState
@@ -23,6 +24,7 @@ export function rootReducer(state, action) {
       return {...state, [field]: updateState}
     case CURRENT_STYLE:
       field = 'currentStyles'
+      action.payload.color = rgb2hex(action.payload.color)
       return {...state, [field]: action.payload}
     case APPLY_STYLE:
       field = 'stylesState'

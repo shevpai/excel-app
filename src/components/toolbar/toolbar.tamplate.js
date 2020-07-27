@@ -44,6 +44,11 @@ export function createToolbar(state) {
       icon: 'format_underlined',
       active: state['textDecoration'] === 'underline',
       value: {textDecoration: state['textDecoration'] === 'underline' ? 'none' : 'underline'}
+    },
+    {
+      icon: 'strikethrough_s',
+      active: state['textDecoration'] === 'line-through',
+      value: {textDecoration: state['textDecoration'] === 'line-through' ? 'none' : 'line-through'}
     }
   ]
   return buttons.map(toButton).join('')
