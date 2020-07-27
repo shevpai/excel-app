@@ -21,16 +21,21 @@
   padding-right: 4px;
 }
 
+.colorpicker {
+  padding-left: 5px;
+  padding-right: 10px;
+  border-left: 1px solid $border-color;
+}
+
 input[type="color"] {
   -webkit-appearance: none;
-  border: none;
+  border: 1px solid $border-color;
   border-radius: 3px;
   background: #fff;  
   height: 20px;
-  width: 40px;
+  width: 36px;
   overflow: hidden;
   outline: none;
-  cursor: inherit;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -50,4 +55,8 @@ input[type=color]::-moz-focus-inner {
 input[type=color]::-moz-color-swatch {
   border: none;
   height: 140px;
+}
+
+label {
+  cursor: inherit;
 }

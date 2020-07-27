@@ -13,7 +13,7 @@ function toButton(button) {
   `
 }
 
-export function createToolbar(state) {
+export function createToolbarBtn(state) {
   const buttons = [
     {
       icon: 'format_align_left',
@@ -52,4 +52,27 @@ export function createToolbar(state) {
     }
   ]
   return buttons.map(toButton).join('')
+}
+
+
+export function createColorPic(state) {
+  return `
+    <div class="button colorpicker" title="Text Color">
+      <label class="material-icons" for="text-color">colorize</label>
+      <input
+        id="text-color" 
+        type="color" 
+        value=${state.color || '#ff0000'}
+        data-type="text-color"
+      > 
+    </div>
+    <div class="button colorpicker" title="Fill">
+      <label class="material-icons" for="text-color">format_paint</label>
+      <input
+        id="background-color" 
+        type="color" 
+        value=${state.backgroundColor || '#f8f9fa'}
+        data-type="background-color"
+      > 
+    </div>`
 }

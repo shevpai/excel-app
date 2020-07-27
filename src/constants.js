@@ -3,5 +3,6 @@ export const defaultStyles = {
   fontWeight: 'normal', 
   textDecoration: 'none',
   fontStyle: 'normal',
-  color: '000'
+  color: '000',
+  backgroundColor: '#f8f9fa'
 }

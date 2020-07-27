@@ -25,6 +25,7 @@ export function rootReducer(state, action) {
     case CURRENT_STYLE:
       field = 'currentStyles'
       action.payload.color = rgb2hex(action.payload.color)
+      action.payload.backgroundColor = rgb2hex(action.payload.backgroundColor)
       return {...state, [field]: action.payload}
     case APPLY_STYLE:
       field = 'stylesState'

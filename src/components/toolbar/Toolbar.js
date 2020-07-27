@@ -1,7 +1,7 @@
 import {$} from '@core/dom'
-import { createToolbar } from './toolbar.tamplate'
+import { createToolbarBtn, createColorPic } from './toolbar.tamplate'
 import { ExcelStateComponent } from '../../core/ExcelStateComponent'
-import { rgb2hex } from '../../core/utils'
+
 
 export class Toolbar extends ExcelStateComponent {
   static className = 'excel__toolbar'
@@ -20,15 +20,9 @@ export class Toolbar extends ExcelStateComponent {
 
   get template() {
     return (`
-      ${createToolbar(this.state)}
-      <div class="button">
-        <input 
-          type="color" 
-          value=${this.state.color || '#ff0000'}
-          data-type="color-picker"
-        > 
-      </div>`
-    )
+      ${createToolbarBtn(this.state)}
+      ${createColorPic(this.state)}
+    `)
   }
 
   toHTML() {
@@ -48,8 +42,11 @@ export class Toolbar extends ExcelStateComponent {
   }
 
   onChange(event) {
-    if (event.target.dataset.type === 'color-picker') {
+    if (event.target.dataset.type === 'text-color') {
       const value = {color: event.target.value}
+      this.$emit('toolbar:applyStyle', value)   
+    } else if (event.target.dataset.type === 'background-color') {
+      const value = {backgroundColor: event.target.value}
       this.$emit('toolbar:applyStyle', value)   
     }
   }
