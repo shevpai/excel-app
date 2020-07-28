@@ -1,5 +1,6 @@
 export const defaultStyles = {
   textAlign: 'left',
+  fontSize: '18px',
   fontWeight: 'normal', 
   textDecoration: 'none',
   fontStyle: 'normal',

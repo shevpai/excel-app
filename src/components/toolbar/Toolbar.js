@@ -1,5 +1,5 @@
 import {$} from '@core/dom'
-import { createToolbarBtn, createColorPic } from './toolbar.tamplate'
+import { createToolbar } from './toolbar.tamplate'
 import { ExcelStateComponent } from '../../core/ExcelStateComponent'
 
 
@@ -19,10 +19,7 @@ export class Toolbar extends ExcelStateComponent {
   }
 
   get template() {
-    return (`
-      ${createToolbarBtn(this.state)}
-      ${createColorPic(this.state)}
-    `)
+    return createToolbar(this.state)
   }
 
   toHTML() {
@@ -38,7 +35,11 @@ export class Toolbar extends ExcelStateComponent {
     if ($target.data.type === 'button') {
       const value = JSON.parse($target.data.value)
       this.$emit('toolbar:applyStyle', value)      
-    } 
+    } else if ($target.data.type === 'font-size') {
+      const s = event.target
+      const value = {fontSize: s.options[s.selectedIndex].value}
+      this.$emit('toolbar:applyStyle', value)      
+    }
   }
 
   onChange(event) {

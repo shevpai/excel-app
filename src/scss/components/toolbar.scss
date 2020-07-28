@@ -27,6 +27,45 @@
   border-left: 1px solid $border-color;
 }
 
+.font-size {
+  margin: 0 10px 0 5px;
+  height: 24px;
+  width: 39px;
+  text-align: center;
+  font-size: 16px;
+}
+
+select {
+  width: 45px;
+}
+
+div.tip {
+  text-decoration: none
+}
+
+div.tip:hover {
+  cursor: pointer;
+  position: relative
+}
+
+div.tip span {
+  display: none;
+  font-size: 16px;
+}
+
+div.tip:hover span {
+  border: #c0c0c0 1px dotted;
+  padding: 5px 5px 5px 5px;
+  display: block;
+  background: #f0f0f0 no-repeat 100% 5%;
+  left: 0px;
+  margin: 10px;
+  width: max-content;
+  position: absolute;
+  top: 17px;
+  text-decoration: none
+}
+
 input[type="color"] {
   -webkit-appearance: none;
   border: 1px solid $border-color;
