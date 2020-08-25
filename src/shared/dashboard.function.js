@@ -1,5 +1,7 @@
 import { storage, formatDate } from "../core/utils"
 
+const compareDate = (a, b) => new Date(b.date) - new Date(a.date)
+
 function toHTML(key) {
   const model = storage(key)
   const id = key.split(':')[1]  
@@ -24,11 +26,20 @@ function getAllKeys() {
     }
     keys.push(key)
   }
+
   return keys
 }
 
 export function createRecordsTable() {
-  const keys = getAllKeys()
+  const keys = []
+  const keysDate = getAllKeys().map(key => {
+    return {
+      key,
+      date: storage(key).lastViewed
+    }
+  })
+  
+  keysDate.sort(compareDate).forEach(keyDate => keys.push(keyDate.key))    
 
   if (!keys.length) {
   return `<p class="db__table__no-tables">You have not create any table</p>`
