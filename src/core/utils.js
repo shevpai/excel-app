@@ -3,7 +3,7 @@ export function parse(text = '') {
     try {
       return eval(text.slice(1))
     } catch (e) {
-      console.warn('Skipping parse error', e.message)
+      return
     }
   }
   return text
