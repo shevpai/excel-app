@@ -51,7 +51,7 @@ export class Header extends ExcelComponent {
     const $target = $(event.target)
 
     if ($target.data.button === 'remove') {
-      const decision = confirm('Want to delete this table?')
+      const decision = confirm('Are you sure, you  want to delete this table?')
 
       if (decision) {
         localStorage.removeItem('excel:' + ActiveRoute.param)

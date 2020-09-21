@@ -42,7 +42,7 @@ export function createRecordsTable() {
   keysDate.sort(compareDate).forEach(keyDate => keys.push(keyDate.key))    
 
   if (!keys.length) {
-  return `<p class="db__table__no-tables">You have not create any table</p>`
+  return `<p class="db__table__no-tables">You don't have any tables yet</p>`
   }  
 
   return `
