@@ -80,6 +80,8 @@ export class Table extends ExcelComponent {
       if (event.shiftKey) {
         const $cells = matrix($target, this.selection.current).map(id => this.$root.find(`[data-id="${id}"]`))
         this.selection.selectGroup($cells) 
+      } else if (event.ctrlKey) {        
+        this.selection.selectGroupByOne($target)
       } else {
         this.selectCell($target)
       }

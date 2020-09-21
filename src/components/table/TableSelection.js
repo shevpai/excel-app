@@ -24,6 +24,11 @@ export class TableSelection {
     this.group.forEach($cell => $cell.addClass(TableSelection.className))
   }
 
+  selectGroupByOne($el) {    
+    this.group.push($el)
+    this.group.forEach($cell => $cell.addClass(TableSelection.className))
+  }
+
   get ids() {
     return this.group.map($el => $el.id())
   }
