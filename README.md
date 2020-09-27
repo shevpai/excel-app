@@ -21,7 +21,7 @@ After learning new stuff i comeback to this application and extend it by impleme
 
 ### Simple schemes, to have basic understanding of how it works:
 
-<img align="left" alt="Full-scheme"  src="https://i.ibb.co/xz64wWB/Full-scheme.jpg" />
+<img align="left" alt="Full-scheme"  src="https://i.ibb.co/5hmm0J0/Full-scheme.jpg" />
 
 <img align="left" alt="Components"  src="https://i.ibb.co/NSVTHNT/Components.jpg" />
 
