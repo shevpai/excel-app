@@ -5,7 +5,7 @@ Here is my **Excel Clone**  build with pure JavaScript(ES6+), done by following 
 
 ***
 
-### The purpose of this project is to learn modern JavaScript by building own framework that used as a core of excel clone application
+### The purpose of this project is to learn modern JavaScript by building own framework that used as a core of application
 
 Used technologies:
 
