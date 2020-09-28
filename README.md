@@ -25,9 +25,9 @@ After learning new stuff i comeback to this application and extend it by impleme
 
 <img align="left" alt="Components"  src="https://i.ibb.co/NSVTHNT/Components.jpg" />
 
-##
+***
 
-### Display View
+### Screenshots
 
 <img align="left" alt="Dashboard"  src="https://i.ibb.co/r5zL3y4/Dashboard.png" />
 
