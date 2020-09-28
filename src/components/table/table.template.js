@@ -57,7 +57,7 @@ function toCell(state, row) {
       data-col="${col}" 
       data-id="${id}"
       data-value="${data || ''}"
-      style="${styles}; width: ${width}"
+      style="${styles}; width: ${width}; white-space: normal;"
     >
       ${parse(data) || ''}
     </div>
