@@ -31,7 +31,7 @@ After learning new stuff i comeback to this application and extend it by impleme
 
 <img align="left" alt="Dashboard"  src="https://i.ibb.co/r5zL3y4/Dashboard.png" />
 
-<img align="left" alt="Table"  src="https://i.ibb.co/N7gHFvh/Table.png" />
+<img align="left" alt="Table"  src="https://i.ibb.co/cJVkfhk/table-example.png" />
 
 [githubRep]: https://github.com/shevpai/excel-app
 
