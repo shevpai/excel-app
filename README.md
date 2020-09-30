@@ -1,7 +1,7 @@
 
-[<img align="left" alt="GitHub" width="36px" src="https://simpleicons.org/icons/microsoftexcel.svg" />][githubRep]
+[<img align="left" alt="GitHub" width="36px" src="https://simpleicons.org/icons/microsoftexcel.svg" />][Firebase]
 
-Here is my **Excel Clone**  build with pure JavaScript(ES6+), done by following [Vladilen Minin course](https://www.jsexcel.ru/)
+Here is my [**Excel Clone**](https://excel-clone.web.app) build with pure JavaScript(ES6+), done by following [Vladilen Minin course](https://www.jsexcel.ru/)
 
 ***
 
@@ -33,5 +33,7 @@ After learning new stuff i comeback to this application and extend it by impleme
 
 <img align="left" alt="Table"  src="https://i.ibb.co/cJVkfhk/table-example.png" />
 
-[githubRep]: https://github.com/shevpai/excel-app
+url: https://excel-clone.web.app
+
+[Firebase]: https://excel-clone.web.app
 
