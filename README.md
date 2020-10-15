@@ -17,6 +17,8 @@ Used technologies:
  
 After learning new stuff i comeback to this application and extend it by implementing new functionality
 
+Deployed on [firebase](https://excel-clone.web.app)
+
 ##
 
 ### Simple schemes, to have basic understanding of how it works:
