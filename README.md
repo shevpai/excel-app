@@ -13,9 +13,7 @@ Used technologies:
  - Webpack
  - Babel
  - Sass
- - Own Redux and Observer(Emitter)
- 
-After learning new stuff i comeback to this application and extend it by implementing new functionality
+ - Own Redux and Observer(Emitter) 
 
 Deployed on [firebase](https://excel-clone.web.app)
 
