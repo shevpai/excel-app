@@ -11,9 +11,8 @@ Used technologies:
 
  - JavaScript ES6+
  - Webpack
- - Babel
  - Sass
- - Own Redux and Observer(Emitter) 
+ - Redux and Observer(Emitter) 
 
 Deployed on [firebase](https://excel-clone.web.app)
 
