@@ -1,4 +1,5 @@
 
+
 [<img align="left" alt="GitHub" width="36px" src="https://simpleicons.org/icons/microsoftexcel.svg" />][Firebase]
 
 Here is my [**Excel Clone**](https://excel-clone.web.app) build with pure JavaScript(ES6+), done by following [Vladilen Minin course](https://www.jsexcel.ru/)
@@ -18,6 +19,8 @@ Deployed on [firebase](https://excel-clone.web.app)
 
 ##
 
+*Small description: formula(fx) works just in the way eval() works*
+
 ### Simple schemes, to have basic understanding of how it works:
 
 <img align="left" alt="Full-scheme"  src="https://i.ibb.co/5hmm0J0/Full-scheme.jpg" />
@@ -32,7 +35,4 @@ Deployed on [firebase](https://excel-clone.web.app)
 
 <img align="left" alt="Table"  src="https://i.ibb.co/cJVkfhk/table-example.png" />
 
-url: https://excel-clone.web.app
-
 [Firebase]: https://excel-clone.web.app
-
