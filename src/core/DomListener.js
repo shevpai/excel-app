@@ -1,33 +1,35 @@
-import { capitalizeFirst } from "./utils"
+import { capitalizeFirst } from "./utils";
 
 export class DomListener {
   constructor($root, listeners = []) {
     if (!$root) {
-      throw new Error(`No $root provided for DomeListener`)
+      throw new Error(`No $root provided for DomeListener`);
     }
-    this.$root = $root
-    this.listeners = listeners
+    this.$root = $root;
+    this.listeners = listeners;
   }
 
   initDOMListeners() {
-    this.listeners.forEach(listener => {
-      const method = getMethodName(listener)    
+    this.listeners.forEach((listener) => {
+      const method = getMethodName(listener);
       if (!this[method]) {
-        throw new Error(`Method ${method} is not implemented in ${this.name} Component`)
+        throw new Error(
+          `Method ${method} is not implemented in ${this.name} Component`
+        );
       }
-      this[method] = this[method].bind(this)
-      this.$root.on(listener, this[method])
-    })
+      this[method] = this[method].bind(this);
+      this.$root.on(listener, this[method]);
+    });
   }
 
   removeDOMListeners() {
-    this.listeners.forEach(listener => {
-      const method = getMethodName(listener)    
-      this.$root.off(listener, this[method])
-    })
-  }  
+    this.listeners.forEach((listener) => {
+      const method = getMethodName(listener);
+      this.$root.off(listener, this[method]);
+    });
+  }
 }
 
 function getMethodName(eventName) {
-  return 'on' + capitalizeFirst(eventName)
+  return "on" + capitalizeFirst(eventName);
 }

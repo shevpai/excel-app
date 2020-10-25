@@ -1,48 +1,50 @@
-import { TABLE_RESIZE,
-         CHANGE_TEXT, 
-         CHANGE_TABLE_HEADER, 
-         CURRENT_STYLE, 
-         APPLY_STYLE, 
-         UPDATE_VIEW_DATE } from "./types";
+import {
+  TABLE_RESIZE,
+  CHANGE_TEXT,
+  CHANGE_TABLE_HEADER,
+  CURRENT_STYLE,
+  APPLY_STYLE,
+  UPDATE_VIEW_DATE,
+} from "./types";
 
 export function tableResize(data) {
   return {
     type: TABLE_RESIZE,
-    payload: data
-  }
+    payload: data,
+  };
 }
 
 export function changeText(data) {
   return {
     type: CHANGE_TEXT,
-    payload: data
-  }
+    payload: data,
+  };
 }
 
 export function changeHeader(text) {
   return {
     type: CHANGE_TABLE_HEADER,
-    payload: text
-  }
+    payload: text,
+  };
 }
 
 export function changeStyles(styles) {
   return {
     type: CURRENT_STYLE,
-    payload: styles
-  }
+    payload: styles,
+  };
 }
 
 // data = val, ids
 export function applyStyle(data) {
   return {
     type: APPLY_STYLE,
-    payload: data
-  }
+    payload: data,
+  };
 }
 
 export function updateDate() {
   return {
-    type: UPDATE_VIEW_DATE
-  }
+    type: UPDATE_VIEW_DATE,
+  };
 }

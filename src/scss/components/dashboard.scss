@@ -2,7 +2,6 @@
 @import "../_notCompile/mixins";
 
 .db {
-  
   &__header {
     position: absolute;
     left: 0;
@@ -13,7 +12,7 @@
     align-items: center;
     justify-content: center;
     background: #aabbe9;
-    box-shadow: 0 2px 5px 2px rgba(60, 64, 67, .15);
+    box-shadow: 0 2px 5px 2px rgba(60, 64, 67, 0.15);
     z-index: 1000;
   }
 
@@ -39,8 +38,8 @@
     text-align: center;
 
     &__icon {
-      font-size: 95px; 
-      min-width: 95px;    
+      font-size: 95px;
+      min-width: 95px;
     }
 
     &:hover {
@@ -53,7 +52,6 @@
   &__view {
     max-width: 1000px;
     margin: 0 auto;
-
   }
 
   &__table {
@@ -72,7 +70,7 @@
     font-weight: 500;
     font-size: 22px;
     padding: 0 12px;
-  }  
+  }
 
   &__list {
     @include clear-list;
@@ -89,7 +87,7 @@
       background: #e6f4ea;
       border-radius: 25px;
     }
-    
+
     a {
       text-decoration: none;
       cursor: pointer;

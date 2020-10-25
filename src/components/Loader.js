@@ -1,7 +1,7 @@
 import { $ } from "../core/dom";
 
 export function Loader() {
-  return $.create('div', 'loader').html(`
+  return $.create("div", "loader").html(`
     <div class="lds-grid">
       <div></div>
       <div></div>
@@ -13,5 +13,5 @@ export function Loader() {
       <div></div>
       <div></div>
     </div>
-  `)
+  `);
 }

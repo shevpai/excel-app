@@ -4,8 +4,8 @@ import { createRecordsTable } from "../shared/dashboard.function";
 
 export class DashboardPage extends Page {
   getRoot() {
-    const now = Date.now().toString() 
-    return $.create('div', 'db').html(`
+    const now = Date.now().toString();
+    return $.create("div", "db").html(`
       <div class="db__header">
         <h1>Excel Dashboard</h1>
       </div>
@@ -21,6 +21,6 @@ export class DashboardPage extends Page {
       <div class="db__table db__view">
         ${createRecordsTable()}  
       </div>
-    `)
+    `);
   }
 }

@@ -1,4 +1,10 @@
-node_modules
-package-lock.json
+/node_modules
+/dist
 
-dist
+package-lock.json
+.prettierignore
+
+# firebase
+.firebase/
+.firebaserc
+firebase.json

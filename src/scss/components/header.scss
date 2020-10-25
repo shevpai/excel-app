@@ -2,7 +2,7 @@
 @import "../_notCompile/mixins";
 
 .excel__header {
-  position: fixed;  
+  position: fixed;
   z-index: 1000;
   top: 0;
   right: 0;
@@ -13,8 +13,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #aabbe9;
-  
-  
+
   & .input {
     margin: 0 5px;
     padding: 2px 7px;
@@ -33,9 +32,8 @@
     }
 
     &:focus {
-      border: 2px solid #1a73e8;      
+      border: 2px solid #1a73e8;
     }
-    
   }
 
   & .button {
@@ -47,7 +45,7 @@
     }
 
     &:hover {
-    background: #aabbe9;
+      background: #aabbe9;
     }
   }
 }

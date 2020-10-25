@@ -1,33 +1,33 @@
-import {$} from '@core/dom'
-import {ExcelComponent} from '@core/ExcelComponent'
-import * as actions from '@/redux/actions'
-import { ActiveRoute } from '../../core/routes/ActiveRoute'
-
+import { $ } from "@core/dom";
+import { ExcelComponent } from "@core/ExcelComponent";
+import * as actions from "@/redux/actions";
+import { ActiveRoute } from "../../core/routes/ActiveRoute";
 
 export class Header extends ExcelComponent {
-  static className = 'excel__header'
+  static className = "excel__header";
 
   constructor($root, options) {
     super($root, {
-      name: 'Header',
-      listeners: ['input', 'click'],
-      subscribe: ['headerState'],
-      ...options
-    })
+      name: "Header",
+      listeners: ["input", "click"],
+      subscribe: ["headerState"],
+      ...options,
+    });
   }
 
-
   init() {
-    super.init()
-    
-    this.$title = $('.input')
-    this.$dispatch(actions.changeHeader(this.$title.textContent()))
+    super.init();
+
+    this.$title = $(".input");
+    this.$dispatch(actions.changeHeader(this.$title.textContent()));
   }
 
   toHTML() {
-    const value = this.store.getState().headerState
+    const value = this.store.getState().headerState;
     return `
-      <input type="text" class="input" value="${value || 'New Table'}" spellcheck="false"/>
+      <input type="text" class="input" value="${
+        value || "New Table"
+      }" spellcheck="false"/>
 
       <div>
 
@@ -40,25 +40,25 @@ export class Header extends ExcelComponent {
         </div>
 
       </div>
-    `
+    `;
   }
 
   onInput(event) {
-    this.$dispatch(actions.changeHeader($(event.target).textContent()))
+    this.$dispatch(actions.changeHeader($(event.target).textContent()));
   }
 
   onClick(event) {
-    const $target = $(event.target)
+    const $target = $(event.target);
 
-    if ($target.data.button === 'remove') {
-      const decision = confirm('Are you sure, you  want to delete this table?')
+    if ($target.data.button === "remove") {
+      const decision = confirm("Are you sure, you  want to delete this table?");
 
       if (decision) {
-        localStorage.removeItem('excel:' + ActiveRoute.param)
-        ActiveRoute.navigate('')
+        localStorage.removeItem("excel:" + ActiveRoute.param);
+        ActiveRoute.navigate("");
       }
-    } else if ($target.data.button === 'exit') {
-      ActiveRoute.navigate('')
+    } else if ($target.data.button === "exit") {
+      ActiveRoute.navigate("");
     }
   }
 }

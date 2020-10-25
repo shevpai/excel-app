@@ -6,7 +6,7 @@
   z-index: 1000;
   left: 0;
   right: 0;
-  top: $header-height;  
+  top: $header-height;
   height: $toolbar-height;
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
@@ -17,7 +17,7 @@
 }
 
 .button {
-  @include button(green); 
+  @include button(green);
   padding-right: 4px;
 }
 
@@ -40,12 +40,12 @@ select {
 }
 
 div.tip {
-  text-decoration: none
+  text-decoration: none;
 }
 
 div.tip:hover {
   cursor: pointer;
-  position: relative
+  position: relative;
 }
 
 div.tip span {
@@ -63,14 +63,14 @@ div.tip:hover span {
   width: max-content;
   position: absolute;
   top: 17px;
-  text-decoration: none
+  text-decoration: none;
 }
 
 input[type="color"] {
   -webkit-appearance: none;
   border: 1px solid $border-color;
   border-radius: 3px;
-  background: #fff;  
+  background: #fff;
   height: 20px;
   width: 36px;
   overflow: hidden;
@@ -78,20 +78,20 @@ input[type="color"] {
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;    
+  padding: 0;
 }
 
 input[type="color"]::-webkit-color-swatch {
-  border: none;  
+  border: none;
 }
 
 /* firefox */
-input[type=color]::-moz-focus-inner {
+input[type="color"]::-moz-focus-inner {
   border: none;
   padding: 0;
 }
 
-input[type=color]::-moz-color-swatch {
+input[type="color"]::-moz-color-swatch {
   border: none;
   height: 140px;
 }
