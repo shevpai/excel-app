@@ -28,14 +28,16 @@ export class Formula extends ExcelComponent {
     this.$subscribe("table:select", (value) =>
       this.$formula.textContent(value)
     );
+
+    this.$subscribe("table:input", (value) => this.$formula.textContent(value));
   }
 
   storeChanged({ currentText }) {
-    this.$formula.textContent(currentText);
+    this.$formula.textContent(currentText.trim());
   }
 
   onInput(event) {
-    this.$emit("formula:input", $(event.target).textContent());
+    this.$emit("formula:input", $(event.target).getTC);
   }
 
   onKeydown(event) {

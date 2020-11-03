@@ -32,6 +32,14 @@ class Dom {
     return this.$el.textContent.trim();
   }
 
+  get getTC() {
+    if (this.$el.tagName.toLowerCase() === "input") {
+      return this.$el.value;
+    }
+
+    return this.$el.textContent;
+  }
+
   on(eventType, callback) {
     this.$el.addEventListener(eventType, callback);
   }

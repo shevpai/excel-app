@@ -41,6 +41,7 @@ export class Table extends ExcelComponent {
     });
 
     this.$subscribe("formula:done", () => this.selection.current.focus());
+    this.$subscribe("header:done", () => this.selection.current.focus());
 
     this.$subscribe("toolbar:applyStyle", (value) => {
       this.selection.applyStyle(value);
@@ -55,7 +56,7 @@ export class Table extends ExcelComponent {
 
   selectCell($cell) {
     this.selection.select($cell);
-    this.$emit("table:select", $cell.data.value);
+    this.$emit("table:select", $cell.data.value.trim());
     this.$dispatch(
       actions.changeStyles($cell.getStyles(Object.keys(defaultStyles)))
     );
@@ -111,7 +112,8 @@ export class Table extends ExcelComponent {
   }
 
   onInput(event) {
-    this.selection.current.attr("data-value", $(event.target).textContent());
-    this.updateTextInStore($(event.target).textContent());
+    this.$emit("table:input", $(event.target).data.value.trim());
+    this.selection.current.attr("data-value", $(event.target).getTC);
+    this.updateTextInStore($(event.target).getTC);
   }
 }

@@ -67,7 +67,7 @@ export class Header extends ExcelComponent {
     if (keys.includes(event.key)) {
       event.preventDefault();
 
-      this.$emit("formula:done");
+      this.$emit("header:done");
     }
   }
 }
