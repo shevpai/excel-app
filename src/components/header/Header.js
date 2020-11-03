@@ -9,7 +9,7 @@ export class Header extends ExcelComponent {
   constructor($root, options) {
     super($root, {
       name: "Header",
-      listeners: ["input", "click"],
+      listeners: ["input", "click", "keydown"],
       subscribe: ["headerState"],
       ...options,
     });
@@ -59,6 +59,15 @@ export class Header extends ExcelComponent {
       }
     } else if ($target.data.button === "exit") {
       ActiveRoute.navigate("");
+    }
+  }
+
+  onKeydown(event) {
+    const keys = ["Enter", "Tab"];
+    if (keys.includes(event.key)) {
+      event.preventDefault();
+
+      this.$emit("formula:done");
     }
   }
 }
