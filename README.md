@@ -19,7 +19,7 @@ Deployed on [firebase](https://excel-clone.web.app)
 
 ##
 
-*Small description: formula(fx) works just in the way eval() works*
+*Small description: when you write '=' inside formula(fx) at first, it works just in the way JS eval() works*
 
 ### Simple schemes, to have basic understanding of how it works:
 
