@@ -90,14 +90,7 @@ export class Table extends ExcelComponent {
   }
 
   onKeydown(event) {
-    const keys = [
-      "Enter",
-      "Tab",
-      "ArrowRight",
-      "ArrowLeft",
-      "ArrowDown",
-      "ArrowUp",
-    ];
+    const keys = ["Tab", "ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"];
     const { key } = event;
 
     if (keys.includes(key) && !event.shiftKey) {
